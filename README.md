@@ -1,3 +1,71 @@
+# Differential Attention
+
+This is a fork of the nano gpt model with differential attention.
+
+## Differential Attention Model
+
+This project includes an implementation of a GPT-like language model with differential attention, based on the paper ["Differential Attention for Language Modeling"](https://arxiv.org/pdf/2410.05258).
+
+### Using the Differential Model
+
+To use the differential attention model:
+
+1. Ensure you have the `differential_model.py` file in your project directory.
+
+2. Import the model in your training or inference script:
+
+```python
+from differential_model import GPT
+```
+
+3. Create an instance of the model:
+
+```python
+model = GPT(config)
+```
+
+Where `config` is a configuration object or dictionary containing the model parameters.
+
+### Training the Differential Model
+
+```
+python train.py config/train_shakespeare_char.py --device=mps --compile=False --out_dir=out_differential
+```
+
+### Sampling from the Differential Model
+
+To generate text using the trained model:
+
+```python
+python sample.py \
+    --out_dir=out_differential \
+    --start="What is the answer to life, the universe, and everything?" \
+    --num_samples=5 --max_new_tokens=100
+```
+
+### Differential Attention Explanation (using ChatGPT =))
+Let’s think of looking at a painting step by step:
+
+	1.	First glance: Imagine you’re standing in front of a painting. At first, you notice the big shapes—maybe a house, a tree, or a person. Your brain is picking up the important features that help you understand the basic meaning of the painting.
+	2.	Second glance: Now, as you look closer, you start to notice the smaller details—the texture of the brushstrokes, the lines that define different objects, or how the light falls on the surfaces. These details add depth to your understanding of the painting and help you appreciate the finer elements.
+	3.	Final understanding: Once you’ve seen both the big shapes and the fine details, your brain combines them. It filters out any unimportant distractions, like random splotches of paint or smudges that don’t contribute to the overall picture, and focuses on the parts that matter the most to create a clear and complete image.
+
+Now, let’s relate this to differential attention in a model:
+
+	•	A regular model looks at everything equally, just like how you might glance at a painting and notice both the important and unimportant details at the same time.
+	•	Differential attention works like a filter in your brain that helps focus on the most important features first (like the big shapes) and gradually builds up the smaller details (like the brushstrokes), while ignoring distractions.
+
+It does this by comparing two attention maps: one for the important information and one that captures the noise (the unimportant stuff). By subtracting the noise, it brings the most relevant information into focus—just like how your brain refines its understanding of the painting over time.
+
+So if you add differential attention to NanoGPT, it helps the model “look” at the text it’s processing more carefully, first focusing on the big ideas, then the smaller details, while ignoring the unnecessary noise, just like your brain when observing a painting.
+
+The differential attention mechanism introduced in this model aims to improve the model's ability to capture long-range dependencies and enhance its performance on various language tasks. Key features include:
+
+- Differential self-attention layer that computes attention based on relative positions
+- Modified positional encoding scheme
+- Potential for improved performance on long-context tasks
+
+For more details on the differential attention mechanism and its benefits, please refer to the [original paper](https://arxiv.org/pdf/2410.05258).
 
 # nanoGPT
 
