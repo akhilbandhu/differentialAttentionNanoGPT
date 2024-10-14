@@ -46,14 +46,14 @@ python sample.py \
 ### Differential Attention Explanation (using ChatGPT =))
 Let’s think of looking at a painting step by step:
 
-	1.	First glance: Imagine you’re standing in front of a painting. At first, you notice the big shapes—maybe a house, a tree, or a person. Your brain is picking up the important features that help you understand the basic meaning of the painting.
-	2.	Second glance: Now, as you look closer, you start to notice the smaller details—the texture of the brushstrokes, the lines that define different objects, or how the light falls on the surfaces. These details add depth to your understanding of the painting and help you appreciate the finer elements.
-	3.	Final understanding: Once you’ve seen both the big shapes and the fine details, your brain combines them. It filters out any unimportant distractions, like random splotches of paint or smudges that don’t contribute to the overall picture, and focuses on the parts that matter the most to create a clear and complete image.
+1.	First glance: Imagine you’re standing in front of a painting. At first, you notice the big shapes—maybe a house, a tree, or a person. Your brain is picking up the important features that help you understand the basic meaning of the painting.
+2.	Second glance: Now, as you look closer, you start to notice the smaller details—the texture of the brushstrokes, the lines that define different objects, or how the light falls on the surfaces. These details add depth to your understanding of the painting and help you appreciate the finer elements.
+3.	Final understanding: Once you’ve seen both the big shapes and the fine details, your brain combines them. It filters out any unimportant distractions, like random splotches of paint or smudges that don’t contribute to the overall picture, and focuses on the parts that matter the most to create a clear and complete image.
 
 Now, let’s relate this to differential attention in a model:
 
-	•	A regular model looks at everything equally, just like how you might glance at a painting and notice both the important and unimportant details at the same time.
-	•	Differential attention works like a filter in your brain that helps focus on the most important features first (like the big shapes) and gradually builds up the smaller details (like the brushstrokes), while ignoring distractions.
+A regular model looks at everything equally, just like how you might glance at a painting and notice both the important and unimportant details at the same time.
+Differential attention works like a filter in your brain that helps focus on the most important features first (like the big shapes) and gradually builds up the smaller details (like the brushstrokes), while ignoring distractions.
 
 It does this by comparing two attention maps: one for the important information and one that captures the noise (the unimportant stuff). By subtracting the noise, it brings the most relevant information into focus—just like how your brain refines its understanding of the painting over time.
 
